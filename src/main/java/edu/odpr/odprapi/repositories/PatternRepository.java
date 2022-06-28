@@ -1,4 +1,4 @@
-package edu.odpr.odprapi.repository;
+package edu.odpr.odprapi.repositories;
 
 import java.util.ArrayList;
 
@@ -22,4 +22,8 @@ public class PatternRepository {
     /*public Pattern getPattern(String name) {
         // implement
     }*/
+
+    public ArrayList<Pattern> getPatterns() {
+        return this.repository;
+    }
 }

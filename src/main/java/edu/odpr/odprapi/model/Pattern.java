@@ -18,7 +18,7 @@ public class Pattern {
         this.classNames.add(newName);
     }
 
-    public ArrayList<String> getNames() {
+    public ArrayList<String> getClassNames() {
         return classNames;
     }
 

@@ -1,0 +1,17 @@
+{
+  "patterns": [
+    {
+      "ComputerSystem_ODP": [
+        "Sistema Operativo",
+        "OS",
+        "SO",
+        "SW",
+        "Computadora",
+        "PC",
+        "Ordenador",
+        "HW",
+        "Controlador"
+      ]
+    }
+  ]
+}
