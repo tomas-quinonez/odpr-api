@@ -11,6 +11,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLClass;
+import org.semanticweb.owlapi.model.OWLObjectProperty;
 import org.semanticweb.owlapi.model.OWLOntology;
 
 import edu.odpr.odprapi.model.Pattern;
@@ -33,6 +34,11 @@ public class NameProcessor {
             IRI iri = owlOntology.getOntologyID().getOntologyIRI().get();
             Pattern newPattern = new Pattern(iri.getShortForm());
             Set<OWLClass> classes = owlOntology.getClassesInSignature();
+            Set<OWLObjectProperty> objectProperties = owlOntology.getObjectPropertiesInSignature();
+
+            for (OWLObjectProperty p: objectProperties) {
+                System.out.println(p.getIRI().getShortForm());
+            }
 
             for (OWLClass owlClass : classes) {
                 //System.out.println(owlClass.getIRI().getShortForm());
