@@ -1,5 +1,6 @@
 package edu.odpr.odprapi.controller;
 
+import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,33 +9,34 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.multipart.MultipartFile;
 
-import edu.odpr.odprapi.message.ResponseMessage;
 import edu.odpr.odprapi.model.Pattern;
-import edu.odpr.odprapi.processors.NameProcessor;
-import edu.odpr.odprapi.repositories.OWLOntologyRepository;
 import edu.odpr.odprapi.repositories.PatternRepository;
-import edu.odpr.odprapi.services.FileStorageService;
 import edu.odpr.odprapi.services.Greeting;
-import edu.odpr.odprapi.services.LoadOntologiesService;
 
 @RestController
-public class RecommenderController {
-
+public class PatternPreprocessorController {
+    
     private static final String template = "Hello, %s!";
     private final AtomicLong counter = new AtomicLong();
 
     @Autowired
-    FileStorageService storageService;
+    private PatternRepository patternRepository;
 
-    @GetMapping("/greeting")
+
+    @GetMapping("/greeting2")
     public ResponseEntity<Greeting> greeting(@RequestParam(value = "name", defaultValue = "World") String name) {
         //return new Greeting(counter.incrementAndGet(), String.format(template, name));
-        return new ResponseEntity<Greeting>(new Greeting(counter.incrementAndGet(), String.format(template, name)),null,HttpStatus.CREATED);
+        return new ResponseEntity<Greeting>(new Greeting(counter.incrementAndGet(), String.format(template, name+"hola")),null,HttpStatus.CREATED);
     }
 
-    @GetMapping("/getpatterns")
+    /*@GetMapping("/patterns")
+    public List<Pattern> getPatterns() {
+        //return new Greeting(counter.incrementAndGet(), String.format(template, name));
+        return patternRepository.findAll();
+    }*/
+
+    /*@GetMapping("/getpatterns")
     public ResponseEntity<Pattern> uploadFile3(@RequestParam(name = "file", required = false) MultipartFile file) {
         // update return type to ResponseEntity<ResponseMessage>
         
@@ -56,5 +58,5 @@ public class RecommenderController {
         //
 
         return ResponseEntity.status(HttpStatus.OK).body(p);
-    }
+    }*/
 }

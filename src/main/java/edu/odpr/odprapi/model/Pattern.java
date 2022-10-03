@@ -1,36 +1,52 @@
 package edu.odpr.odprapi.model;
 
-import java.util.ArrayList;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "pattern")
 public class Pattern {
-    private String patternName;
-    private ArrayList<String> classNames;
-    private int classLength;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    private String name;
+    @Column(name= "xml_file")
+    private String xmlFile;
+    //private ArrayList<String> classNames;
+    //private int classLength;
     
 
     public Pattern(String name) {
-        this.patternName = name;
-        this.classNames = new ArrayList<String>();
-        this.classLength = 0;
+        this.name = name;
     }
 
-    public void addClassName(String newName) {
-        this.classNames.add(newName);
+
+    public int getId() {
+        return this.id;
     }
 
-    public ArrayList<String> getClassNames() {
-        return classNames;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public String getPatternName() {
-        return this.patternName;
+    public String getName() {
+        return this.name;
     }
 
-    public void setClassLength(int length) {
-        this.classLength = length;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public int getClassLength() {
-        return this.classLength;
+    public String getXmlFile() {
+        return this.xmlFile;
     }
+
+    public void setXmlFile(String xmlFile) {
+        this.xmlFile = xmlFile;
+    }
+    
 }
