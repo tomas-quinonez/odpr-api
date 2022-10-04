@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "pattern")
+@Table(name = "pattern", schema="patterns")
 public class Pattern {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,6 +19,7 @@ public class Pattern {
     //private ArrayList<String> classNames;
     //private int classLength;
     
+    public Pattern() {}
 
     public Pattern(String name) {
         this.name = name;
