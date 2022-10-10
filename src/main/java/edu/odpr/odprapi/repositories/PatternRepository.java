@@ -1,29 +1,11 @@
 package edu.odpr.odprapi.repositories;
 
-import java.util.ArrayList;
-
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import edu.odpr.odprapi.model.Pattern;
 
 @Repository
-public class PatternRepository {
+public interface PatternRepository extends JpaRepository<Pattern, Integer>{
     
-    private ArrayList<Pattern> repository;
-
-    public PatternRepository() {
-        this.repository = new ArrayList<>();
-    }
-
-    public void addPattern(Pattern p) {
-        this.repository.add(p);
-    }
-
-    /*public Pattern getPattern(String name) {
-        // implement
-    }*/
-
-    public ArrayList<Pattern> getPatterns() {
-        return this.repository;
-    }
 }
