@@ -1,10 +1,18 @@
 package edu.odpr.odprapi.controller;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.json.JsonParser;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,6 +26,7 @@ import org.springframework.web.multipart.MultipartFile;
 import edu.odpr.odprapi.model.Pattern;
 import edu.odpr.odprapi.repositories.PatternRepository;
 import edu.odpr.odprapi.services.Greeting;
+import edu.odpr.odprapi.services.PatternIEService;
 import edu.odpr.odprapi.services.PatternPreprocessingService;
 
 @RestController
@@ -30,6 +39,8 @@ public class PatternPreprocessorController {
     private PatternRepository patternRepository;
     @Autowired
     private PatternPreprocessingService patternPreprocessingService;
+    @Autowired
+    private PatternIEService patternIEService;
 
 
     @GetMapping("/greeting2")
@@ -46,7 +57,7 @@ public class PatternPreprocessorController {
 
     @PostMapping("/savepattern/{patternName}")
     public Pattern savePattern(@PathVariable String patternName) {
-        return patternRepository.save(new Pattern(patternName, "")); 
+        return patternRepository.save(new Pattern(patternName, "", "", "", null)); 
     }
 
     @PostMapping("/savepattern2/{patternName}")
@@ -59,7 +70,43 @@ public class PatternPreprocessorController {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        return patternPreprocessingService.savePattern(new Pattern(patternName, xmlFile)); 
+        return patternPreprocessingService.savePattern(new Pattern(patternName, xmlFile, "", "", null)); 
+    }
+
+    @PostMapping("/savepattern3/{patternName}")
+    public Pattern savePattern3(@PathVariable String patternName, @RequestParam(name = "file", required = false) MultipartFile file,
+                                    @RequestParam(name= "synonyms", required = false) String synonyms) {
+        String xmlFile = "";
+        try {
+            xmlFile = new String(file.getBytes());
+            System.out.println("patron: "+ xmlFile);
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        File convFile = new File( file.getOriginalFilename() );
+        System.out.println("INICIO: "+convFile.exists());
+        FileOutputStream fos;
+        try {
+            //fos = new FileOutputStream( convFile );
+            //fos.write( file.getBytes() );
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        
+        JSONParser parser = new JSONParser();
+        JSONObject jo = null;
+        try {
+            jo = (JSONObject) parser.parse(synonyms);
+        } catch (ParseException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        System.out.println("ANTES DEL PROCESAMIENTO");
+        Pattern p = patternIEService.processPattern(convFile,jo);
+        p.setName(patternName);
+        return patternPreprocessingService.savePattern(p); 
     }
 
     /*@GetMapping("/getpatterns")

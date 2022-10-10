@@ -8,27 +8,51 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Type;
+import org.hibernate.annotations.TypeDef;
+
+import com.vladmihalcea.hibernate.type.json.JsonType;
 
 
 @Entity
 @Table(name = "pattern", schema="patterns")
+@TypeDef(
+    name = "json",
+    typeClass = JsonType.class
+)
 public class Pattern {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
     @Column(name = "name")
     private String name;
-    @Column(name= "xml_file", columnDefinition = "xml")
+
+    @Column(name= "class_names", columnDefinition = "xml")
     @org.hibernate.annotations.Type(type="edu.odpr.odprapi.model.SQLXMLType")
-    private String xmlFile;
+    private String classNames;
+
+    @Column(name= "op_names", columnDefinition = "xml")
+    @org.hibernate.annotations.Type(type="edu.odpr.odprapi.model.SQLXMLType")
+    private String opNames;
+
+    @Column(name= "axioms", columnDefinition = "xml")
+    @org.hibernate.annotations.Type(type="edu.odpr.odprapi.model.SQLXMLType")
+    private String axioms;
+
+    @Type(type= "json")
+    @Column(name= "synonyms", columnDefinition = "jsonb")
+    private String synonyms;
     //private ArrayList<String> classNames;
     //private int classLength;
     
     public Pattern() {}
 
-    public Pattern(String name, String xmlFile) {
+    public Pattern(String name, String classNames, String opNames, String axioms, String synonyms) {
         this.name = name;
-        this.xmlFile = xmlFile;
+        this.classNames = classNames;
+        this.opNames = opNames;
+        this.axioms = axioms;
+        this.synonyms = synonyms;
     }
 
     public int getId() {
@@ -47,12 +71,39 @@ public class Pattern {
         this.name = name;
     }
 
-    public String getXmlFile() {
-        return this.xmlFile;
+
+    public String getClassNames() {
+        return this.classNames;
     }
 
-    public void setXmlFile(String xmlFile) {
-        this.xmlFile = xmlFile;
+    public void setClassNames(String classNames) {
+        this.classNames = classNames;
     }
+
+    public String getOpNames() {
+        return this.opNames;
+    }
+
+    public void setOpNames(String opNames) {
+        this.opNames = opNames;
+    }
+
+    public String getAxioms() {
+        return this.axioms;
+    }
+
+    public void setAxioms(String axioms) {
+        this.axioms = axioms;
+    }
+
+    public String getSynonyms() {
+        return this.synonyms;
+    }
+
+    public void setSynonyms(String synonyms) {
+        this.synonyms = synonyms;
+    }
+
+
     
 }
