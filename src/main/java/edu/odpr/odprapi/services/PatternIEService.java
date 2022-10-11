@@ -1,22 +1,11 @@
 package edu.odpr.odprapi.services;
 
 import java.io.File;
-import java.io.FileReader;
 import java.util.Set;
 
-import javax.print.Doc;
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerFactory;
-import javax.xml.transform.dom.DOMSource;
-import javax.xml.transform.stream.StreamResult;
-
-import org.hibernate.annotations.SourceType;
 import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
 import org.semanticweb.owlapi.apibinding.OWLManager;
-import org.semanticweb.owlapi.model.IRI;
+//import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLAxiom;
 import org.semanticweb.owlapi.model.OWLClass;
 import org.semanticweb.owlapi.model.OWLClassExpression;
@@ -24,30 +13,22 @@ import org.semanticweb.owlapi.model.OWLObjectProperty;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.web.server.SslConfigurationValidator;
 import org.springframework.stereotype.Service;
-import org.w3c.dom.Attr;
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
 
 import edu.odpr.odprapi.model.Pattern;
 
 @Service
 public class PatternIEService {
 
-    @Autowired
-    private PatternPreprocessingService patternPreprocessingService;
-
     public Pattern processPattern(File f, JSONObject jo) {
         OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
-        XMLManager classNamesXMLManager = new XMLManager();
-        XMLManager objectPropNamesXMLManager = new XMLManager();
-        XMLManager axiomsXMLManager = new XMLManager();
+        ClassesXMLManager classNamesXMLManager = new ClassesXMLManager();
+        OPsXMLManager objectPropNamesXMLManager = new OPsXMLManager();
+        AxiomsXMLManager axiomsXMLManager = new AxiomsXMLManager();
         Pattern p = null;
         try {
             OWLOntology o = manager.loadOntologyFromOntologyDocument(f);
-            IRI iri = o.getOntologyID().getOntologyIRI().get();
+            //IRI iri = o.getOntologyID().getOntologyIRI().get();
 
             Set<OWLClass> classes = o.getClassesInSignature();
             for (OWLClass owlClass: classes) {
