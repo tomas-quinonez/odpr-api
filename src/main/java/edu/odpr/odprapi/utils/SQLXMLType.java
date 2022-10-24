@@ -1,4 +1,4 @@
-package edu.odpr.odprapi.model;
+package edu.odpr.odprapi.utils;
 
 import java.io.Serializable;
 import java.sql.PreparedStatement;

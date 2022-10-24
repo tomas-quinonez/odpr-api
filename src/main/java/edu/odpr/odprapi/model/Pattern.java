@@ -27,32 +27,38 @@ public class Pattern {
     @Column(name = "name")
     private String name;
 
-    @Column(name= "class_names", columnDefinition = "xml")
-    @org.hibernate.annotations.Type(type="edu.odpr.odprapi.model.SQLXMLType")
-    private String classNames;
+    @Column(name= "class_names_queries", columnDefinition = "xml")
+    @org.hibernate.annotations.Type(type="edu.odpr.odprapi.utils.SQLXMLType")
+    private String classNamesQueries;
 
-    @Column(name= "op_names", columnDefinition = "xml")
-    @org.hibernate.annotations.Type(type="edu.odpr.odprapi.model.SQLXMLType")
-    private String opNames;
+    @Column(name= "op_names_queries", columnDefinition = "xml")
+    @org.hibernate.annotations.Type(type="edu.odpr.odprapi.utils.SQLXMLType")
+    private String opNamesQueries;
 
-    @Column(name= "axioms", columnDefinition = "xml")
-    @org.hibernate.annotations.Type(type="edu.odpr.odprapi.model.SQLXMLType")
-    private String axioms;
+    @Column(name= "axioms_queries", columnDefinition = "xml")
+    @org.hibernate.annotations.Type(type="edu.odpr.odprapi.utils.SQLXMLType")
+    private String axiomsQueries;
 
     @Type(type= "json")
     @Column(name= "synonyms", columnDefinition = "jsonb")
     private String synonyms;
-    //private ArrayList<String> classNames;
-    //private int classLength;
     
     public Pattern() {}
 
-    public Pattern(String name, String classNames, String opNames, String axioms, String synonyms) {
+    public Pattern(String name, String classNamesQueries, String opNamesQueries, String axiomsQueries, String synonyms) {
         this.name = name;
-        this.classNames = classNames;
-        this.opNames = opNames;
-        this.axioms = axioms;
+        this.classNamesQueries = classNamesQueries;
+        this.opNamesQueries = opNamesQueries;
+        this.axiomsQueries = axiomsQueries;
         this.synonyms = synonyms;
+    }
+
+    public Pattern(String classNamesQueries, String opNamesQueries, String axiomsQueries) {
+        this.name = "";
+        this.classNamesQueries = classNamesQueries;
+        this.opNamesQueries = opNamesQueries;
+        this.axiomsQueries = axiomsQueries;
+        this.synonyms = "";
     }
 
     public int getId() {
@@ -72,28 +78,28 @@ public class Pattern {
     }
 
 
-    public String getClassNames() {
-        return this.classNames;
+    public String getClassNamesQueries() {
+        return this.classNamesQueries;
     }
 
-    public void setClassNames(String classNames) {
-        this.classNames = classNames;
+    public void setClassNamesQueries(String classNamesQueries) {
+        this.classNamesQueries = classNamesQueries;
     }
 
-    public String getOpNames() {
-        return this.opNames;
+    public String getOpNamesQueries() {
+        return this.opNamesQueries;
     }
 
-    public void setOpNames(String opNames) {
-        this.opNames = opNames;
+    public void setOpNamesQueries(String opNamesQueries) {
+        this.opNamesQueries = opNamesQueries;
     }
 
-    public String getAxioms() {
-        return this.axioms;
+    public String getAxiomsQueries() {
+        return this.axiomsQueries;
     }
 
-    public void setAxioms(String axioms) {
-        this.axioms = axioms;
+    public void setAxiomsQueries(String axiomsQueries) {
+        this.axiomsQueries = axiomsQueries;
     }
 
     public String getSynonyms() {

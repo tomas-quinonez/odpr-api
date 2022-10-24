@@ -1,4 +1,4 @@
-package edu.odpr.odprapi.services;
+package edu.odpr.odprapi.utils.XMLManager;
 
 import org.w3c.dom.Element;
 
@@ -35,6 +35,21 @@ public class AxiomsXMLManager extends XMLManager{
         OPRangeEl.appendChild(OPEl);
         OPRangeEl.appendChild(classEl);
         isEntailedEl.appendChild(OPRangeEl);
+        this.rootElement.appendChild(isEntailedEl);
+    }
+
+    public void addOPDomainQuery(String objectPropertyName, String className) {
+        Element isEntailedEl = doc.createElement("IsEntailed");
+        isEntailedEl.setAttributeNS(null, "kb", "http://www.owllink.org/ont/sistema");
+        Element OPDomainEl = doc.createElement("owl:ObjectPropertyDomain");
+        Element OPEl = doc.createElement("owl:ObjectProperty");
+        OPEl.setAttribute("IRI", objectPropertyName);
+        Element classEl = doc.createElement("owl:Class");
+        classEl.setAttribute("IRI", className);
+
+        OPDomainEl.appendChild(OPEl);
+        OPDomainEl.appendChild(classEl);
+        isEntailedEl.appendChild(OPDomainEl);
         this.rootElement.appendChild(isEntailedEl);
     }
 
