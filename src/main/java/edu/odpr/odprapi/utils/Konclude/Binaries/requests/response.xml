@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE ResponseMessage>
+<ResponseMessage xmlns="http://www.owllink.org/owllink#" xml:base="http://www.w3.org/2002/07/owl#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+ <Description name="Konclude">
+  <ProtocolVersion minor="0" major="1"/>
+  <ReasonerVersion minor="7" major="0" build="0"/>
+  <Property key="selectedProfile">
+   <OneOf abbreviatedIRI="xsd:string">
+    <Literal>SROIQV(D)</Literal>
+   </OneOf>
+   <Literal>SROIQV(D)</Literal>
+  </Property>
+  <Property key="appliedSemantics">
+   <OneOf abbreviatedIRI="xsd:string">
+    <Literal>direct</Literal>
+   </OneOf>
+   <Literal>direct</Literal>
+  </Property>
+  <Setting key="abbreviatesIRIs">
+   <Datatype abbreviatedIRI="xsd:boolean"/>
+   <Literal>FALSE</Literal>
+  </Setting>
+  <Property key="ignoresAnnotations">
+   <Datatype abbreviatedIRI="xsd:boolean"/>
+   <Literal>true</Literal>
+  </Property>
+  <Property key="ignoresDeclarations">
+   <Datatype abbreviatedIRI="xsd:boolean"/>
+   <Literal>true</Literal>
+  </Property>
+  <Property key="uniqueNameAssumption">
+   <Datatype abbreviatedIRI="xsd:boolean"/>
+   <Literal>false</Literal>
+  </Property>
+  <Property key="supportedDatatypes">
+   <List abbreviatedIRI="xsd:anyURI"/>
+  </Property>
+ </Description>
+</ResponseMessage>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE ResponseMessage>
+<ResponseMessage xmlns="http://www.owllink.org/owllink#" xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:base="http://www.w3.org/2002/07/owl#" xmlns:owl="http://www.w3.org/2002/07/owl#">
+ <KB kb="http://www.owllink.org/ont/sistema"/>
+ <OK/>
+ <SetOfClassSynsets>
+  <ClassSynset>
+   <owl:Class IRI="http://crowd.fi.uncoma.edu.ar#OS"/>
+  </ClassSynset>
+  <ClassSynset>
+   <owl:Class IRI="http://crowd.fi.uncoma.edu.ar#Driver"/>
+  </ClassSynset>
+ </SetOfClassSynsets>
+ <OK/>
+</ResponseMessage>

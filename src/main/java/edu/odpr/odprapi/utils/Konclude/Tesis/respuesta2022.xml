@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE ResponseMessage>
+<ResponseMessage xmlns="http://www.owllink.org/owllink#" xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:base="http://www.w3.org/2002/07/owl#" xmlns:owl="http://www.w3.org/2002/07/owl#">
+ <KB kb="http://www.owllink.org/ont/sistema"/>
+ <OK/>
+ <SetOfClasses>
+  <owl:Class IRI="http://www.w3.org/2002/07/owl#Thing"/>
+  <owl:Class IRI="http://www.w3.org/2002/07/owl#Nothing"/>
+  <owl:Class IRI="http://www.semanticweb.org/tomyl/ontologies/2022/3/untitled-ontology-3#Driver"/>
+  <owl:Class IRI="http://www.semanticweb.org/tomyl/ontologies/2022/3/untitled-ontology-3#HW"/>
+  <owl:Class IRI="http://www.semanticweb.org/tomyl/ontologies/2022/3/untitled-ontology-3#OS"/>
+  <owl:Class IRI="http://www.semanticweb.org/tomyl/ontologies/2022/3/untitled-ontology-3#SW"/>
+ </SetOfClasses>
+ <SetOfObjectProperties>
+  <owl:ObjectProperty IRI="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+  <owl:ObjectProperty IRI="http://www.w3.org/2002/07/owl#bottomObjectProperty"/>
+  <owl:ObjectProperty IRI="http://www.semanticweb.org/tomyl/ontologies/2022/3/untitled-ontology-3#requires"/>
+ </SetOfObjectProperties>
+ <BooleanResponse result="true"/>
+ <Error error="An error has occurred while processing 'Process-Knowledge-Base-Query Command',&#xa;Error process protocol:&#xa;{notice}, [::Konclude::Command::Command]:Finish processing 'Process-Knowledge-Base-Query Command' with all sub commands. Command closed.&#xa;{notice}, [::Konclude::Control::Interface::OWLlink::OWLlinkProcessor]:Finish processing 'Process-Knowledge-Base-Query Command'.&#xa;{notice}, [::Konclude::Control::Interface::OWLlink::OWLlinkProcessor]:Stop processing 'Process-Knowledge-Base-Query Command'.&#xa;{notice}, [::Konclude::Control::Interface::OWLlink::OWLlinkProcessor]:Start processing 'Process-Knowledge-Base-Query Command'.&#xa;{error}, An error has occurred while processing 'Calculate-Query Command',&#xa;Sub-Error process protocol:&#xa;{notice}, [::Konclude::Command::Command]:Finish processing 'Calculate-Query Command' with all sub commands. Command closed.&#xa;{notice}, [::Konclude::Command::ReasonerCommanderThread]:Finish processing 'Calculate-Query Command'.&#xa;{notice}, [::Konclude::Command::ReasonerCommanderThread]:Stop processing 'Calculate-Query Command'.&#xa;{error}, [::Konclude::Command::ReasonerCommanderThread]:Query cannot be be resolved.&#xa;{notice}, [::Konclude::Command::ReasonerCommanderThread]:Start processing 'Calculate-Query Command'.&#xa;{error}, An error has occurred while processing 'Build-Query Command',&#xa;Sub-Error process protocol:&#xa;{notice}, [::Konclude::Command::Command]:Finish processing 'Build-Query Command' with all sub commands. Command closed.&#xa;{notice}, [::Konclude::Control::Interface::OWLlink::OWLlinkProcessor]:Finish processing 'Build-Query Command'.&#xa;{notice}, [::Konclude::Control::Interface::OWLlink::OWLlinkProcessor]:Stop processing 'Build-Query Command'.&#xa;{notice}, [::Konclude::Control::Interface::OWLlink::OWLlinkProcessor]:Start processing 'Build-Query Command'.&#xa;{error}, An error has occurred while processing 'Prepare-Knowledge-Base-For-Query Command',&#xa;Sub-Sub-Error process protocol:&#xa;{notice}, [::Konclude::Command::Command]:Finish processing 'Prepare-Knowledge-Base-For-Query Command' with all sub commands. Command closed.&#xa;{notice}, [::Konclude::Control::Interface::OWLlink::OWLlinkProcessor]:Finish processing 'Prepare-Knowledge-Base-For-Query Command'.&#xa;{notice}, [::Konclude::Control::Interface::OWLlink::OWLlinkProcessor]:Stop processing 'Prepare-Knowledge-Base-For-Query Command'.&#xa;{error}, [::Konclude::Control::Interface::OWLlink::OWLlinkProcessor]:Query couldn't be parsed.&#xa;{notice}, [::Konclude::Control::Interface::OWLlink::OWLlinkProcessor]:Start processing 'Prepare-Knowledge-Base-For-Query Command'.&#xa;">
+  <ErrorText>An error has occurred while processing 'Process-Knowledge-Base-Query Command',
+Error process protocol:
+{notice}, [::Konclude::Command::Command]:Finish processing 'Process-Knowledge-Base-Query Command' with all sub commands. Command closed.
+{notice}, [::Konclude::Control::Interface::OWLlink::OWLlinkProcessor]:Finish processing 'Process-Knowledge-Base-Query Command'.
+{notice}, [::Konclude::Control::Interface::OWLlink::OWLlinkProcessor]:Stop processing 'Process-Knowledge-Base-Query Command'.
+{notice}, [::Konclude::Control::Interface::OWLlink::OWLlinkProcessor]:Start processing 'Process-Knowledge-Base-Query Command'.
+{error}, An error has occurred while processing 'Calculate-Query Command',
+Sub-Error process protocol:
+{notice}, [::Konclude::Command::Command]:Finish processing 'Calculate-Query Command' with all sub commands. Command closed.
+{notice}, [::Konclude::Command::ReasonerCommanderThread]:Finish processing 'Calculate-Query Command'.
+{notice}, [::Konclude::Command::ReasonerCommanderThread]:Stop processing 'Calculate-Query Command'.
+{error}, [::Konclude::Command::ReasonerCommanderThread]:Query cannot be be resolved.
+{notice}, [::Konclude::Command::ReasonerCommanderThread]:Start processing 'Calculate-Query Command'.
+{error}, An error has occurred while processing 'Build-Query Command',
+Sub-Error process protocol:
+{notice}, [::Konclude::Command::Command]:Finish processing 'Build-Query Command' with all sub commands. Command closed.
+{notice}, [::Konclude::Control::Interface::OWLlink::OWLlinkProcessor]:Finish processing 'Build-Query Command'.
+{notice}, [::Konclude::Control::Interface::OWLlink::OWLlinkProcessor]:Stop processing 'Build-Query Command'.
+{notice}, [::Konclude::Control::Interface::OWLlink::OWLlinkProcessor]:Start processing 'Build-Query Command'.
+{error}, An error has occurred while processing 'Prepare-Knowledge-Base-For-Query Command',
+Sub-Sub-Error process protocol:
+{notice}, [::Konclude::Command::Command]:Finish processing 'Prepare-Knowledge-Base-For-Query Command' with all sub commands. Command closed.
+{notice}, [::Konclude::Control::Interface::OWLlink::OWLlinkProcessor]:Finish processing 'Prepare-Knowledge-Base-For-Query Command'.
+{notice}, [::Konclude::Control::Interface::OWLlink::OWLlinkProcessor]:Stop processing 'Prepare-Knowledge-Base-For-Query Command'.
+{error}, [::Konclude::Control::Interface::OWLlink::OWLlinkProcessor]:Query couldn't be parsed.
+{notice}, [::Konclude::Control::Interface::OWLlink::OWLlinkProcessor]:Start processing 'Prepare-Knowledge-Base-For-Query Command'.
+</ErrorText>
+ </Error>
+ <BooleanResponse result="false"/>
+</ResponseMessage>

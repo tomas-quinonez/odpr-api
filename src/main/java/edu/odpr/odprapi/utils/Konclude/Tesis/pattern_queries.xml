@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<RequestMessage xmlns:owl="http://www.owllink.org/owllink#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.owllink.org/owllink# http://www.w3.org/Submission/2010/SUBM-owllink-httpxml-binding-20100701/owllink.xsd" xmlns="http://www.owllink.org/owllink#">
+	<CreateKB kb="http://www.owllink.org/ont/sistema" name="KB 1" />
+
+<LoadOntologies kb="http://www.owllink.org/ont/sistema">
+        <OntologyIRI IRI="Tesis/computer_system.owl" />
+    </LoadOntologies>
+
+	<IsClassSatisfiable kb="http://www.owllink.org/ont/sistema">
+		<Class IRI="http://mklab.iti.gr/pericles/ComputerSystem_ODP#Driver" />
+	</IsClassSatisfiable>
+	<IsClassSatisfiable kb="http://www.owllink.org/ont/sistema">
+		<Class IRI="http://mklab.iti.gr/pericles/ComputerSystem_ODP#Computer" />
+	</IsClassSatisfiable>
+	<IsObjectPropertySatisfiable kb="http://www.owllink.org/ont/sistema">
+		<ObjectProperty IRI="http://mklab.iti.gr/pericles/ComputerSystem_ODP#usesHardware" />
+	</IsObjectPropertySatisfiable>
+	<IsObjectPropertySatisfiable kb="http://www.owllink.org/ont/sistema">
+		<ObjectProperty IRI="http://mklab.iti.gr/pericles/ComputerSystem_ODP#requiresSoftware" />
+	</IsObjectPropertySatisfiable>
+	<IsObjectPropertySatisfiable kb="http://www.owllink.org/ont/sistema">
+		<ObjectProperty IRI="http://mklab.iti.gr/pericles/ComputerSystem_ODP#usesDriver" />
+	</IsObjectPropertySatisfiable>
+	<IsClassSatisfiable kb="http://www.owllink.org/ont/sistema">
+		<Class IRI="http://mklab.iti.gr/pericles/ComputerSystem_ODP#Software" />
+	</IsClassSatisfiable>
+	<IsObjectPropertySatisfiable kb="http://www.owllink.org/ont/sistema">
+		<ObjectProperty IRI="http://mklab.iti.gr/pericles/ComputerSystem_ODP#requiresHardware" />
+	</IsObjectPropertySatisfiable>
+	<IsObjectPropertySatisfiable kb="http://www.owllink.org/ont/sistema">
+		<ObjectProperty IRI="http://mklab.iti.gr/pericles/ComputerSystem_ODP#usesOperatingSystem" />
+	</IsObjectPropertySatisfiable>
+	<IsClassSatisfiable kb="http://www.owllink.org/ont/sistema">
+		<Class IRI="http://mklab.iti.gr/pericles/ComputerSystem_ODP#OperatingSystem" />
+	</IsClassSatisfiable>
+	<IsClassSatisfiable kb="http://www.owllink.org/ont/sistema">
+		<Class IRI="http://mklab.iti.gr/pericles/ComputerSystem_ODP#Hardware" />
+	</IsClassSatisfiable>
+	<IsObjectPropertySatisfiable kb="http://www.owllink.org/ont/sistema">
+		<ObjectProperty IRI="http://mklab.iti.gr/pericles/ComputerSystem_ODP#usesSoftware" />
+	</IsObjectPropertySatisfiable>
+	<IsObjectPropertySatisfiable kb="http://www.owllink.org/ont/sistema">
+		<ObjectProperty IRI="http://mklab.iti.gr/pericles/ComputerSystem_ODP#isCompatibleWith" />
+	</IsObjectPropertySatisfiable>
+	<IsEntailed kb="http://www.owllink.org/ont/sistema">
+		<ObjectPropertyRange>
+			<ObjectProperty IRI="http://mklab.iti.gr/pericles/ComputerSystem_ODP#requiresSoftware" />
+			<Class IRI="http://mklab.iti.gr/pericles/ComputerSystem_ODP#Software" />
+		</ObjectPropertyRange>
+	</IsEntailed>
+	<IsEntailed kb="http://www.owllink.org/ont/sistema">
+		<ObjectPropertyRange>
+			<ObjectProperty IRI="http://mklab.iti.gr/pericles/ComputerSystem_ODP#usesOperatingSystem" />
+			<Class IRI="http://mklab.iti.gr/pericles/ComputerSystem_ODP#OperatingSystem" />
+		</ObjectPropertyRange>
+	</IsEntailed>
+	<IsEntailed kb="http://www.owllink.org/ont/sistema">
+		<ObjectPropertyRange>
+			<ObjectProperty IRI="http://mklab.iti.gr/pericles/ComputerSystem_ODP#usesSoftware" />
+			<Class IRI="http://mklab.iti.gr/pericles/ComputerSystem_ODP#Software" />
+		</ObjectPropertyRange>
+	</IsEntailed>
+	<IsEntailed kb="http://www.owllink.org/ont/sistema">
+		<ObjectPropertyRange>
+			<ObjectProperty IRI="http://mklab.iti.gr/pericles/ComputerSystem_ODP#requiresHardware" />
+			<Class IRI="http://mklab.iti.gr/pericles/ComputerSystem_ODP#Hardware" />
+		</ObjectPropertyRange>
+	</IsEntailed>
+	<IsEntailed kb="http://www.owllink.org/ont/sistema">
+		<ObjectPropertyRange>
+			<ObjectProperty IRI="http://mklab.iti.gr/pericles/ComputerSystem_ODP#usesDriver" />
+			<Class IRI="http://mklab.iti.gr/pericles/ComputerSystem_ODP#Driver" />
+		</ObjectPropertyRange>
+	</IsEntailed>
+	<IsEntailed kb="http://www.owllink.org/ont/sistema">
+		<ObjectPropertyRange>
+			<ObjectProperty IRI="http://mklab.iti.gr/pericles/ComputerSystem_ODP#usesHardware" />
+			<Class IRI="http://mklab.iti.gr/pericles/ComputerSystem_ODP#Hardware" />
+		</ObjectPropertyRange>
+	</IsEntailed>
+	<IsEntailed kb="http://www.owllink.org/ont/sistema">
+		<SubClassOf>
+			<Class IRI="http://mklab.iti.gr/pericles/ComputerSystem_ODP#Driver" />
+			<Class IRI="http://mklab.iti.gr/pericles/ComputerSystem_ODP#Software" />
+		</SubClassOf>
+	</IsEntailed>
+	<IsEntailed kb="http://www.owllink.org/ont/sistema">
+		<SubClassOf>
+			<Class IRI="http://mklab.iti.gr/pericles/ComputerSystem_ODP#OperatingSystem" />
+			<Class IRI="http://mklab.iti.gr/pericles/ComputerSystem_ODP#Software" />
+		</SubClassOf>
+	</IsEntailed>
+</RequestMessage>

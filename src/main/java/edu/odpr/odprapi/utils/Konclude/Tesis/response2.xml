@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE ResponseMessage>
+<ResponseMessage xmlns="http://www.owllink.org/owllink#" xmlns:owl="http://www.w3.org/2002/07/owl#" xml:base="http://www.w3.org/2002/07/owl#" xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+ <KB kb="http://www.owllink.org/ont/sistema"/>
+ <OK/>
+ <SetOfClasses>
+  <owl:Class IRI="http://www.w3.org/2002/07/owl#Thing"/>
+  <owl:Class IRI="http://www.w3.org/2002/07/owl#Nothing"/>
+  <owl:Class IRI="http://www.semanticweb.org/tomyl/ontologies/2022/3/untitled-ontology-3#Driver"/>
+  <owl:Class IRI="http://www.semanticweb.org/tomyl/ontologies/2022/3/untitled-ontology-3#HW"/>
+  <owl:Class IRI="http://www.semanticweb.org/tomyl/ontologies/2022/3/untitled-ontology-3#OS"/>
+  <owl:Class IRI="http://www.semanticweb.org/tomyl/ontologies/2022/3/untitled-ontology-3#SW"/>
+ </SetOfClasses>
+ <SetOfObjectProperties>
+  <owl:ObjectProperty IRI="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+  <owl:ObjectProperty IRI="http://www.w3.org/2002/07/owl#bottomObjectProperty"/>
+  <owl:ObjectProperty IRI="http://www.semanticweb.org/tomyl/ontologies/2022/3/untitled-ontology-3#requires"/>
+ </SetOfObjectProperties>
+ <BooleanResponse result="true"/>
+ <BooleanResponse result="true"/>
+ <BooleanResponse result="true"/>
+ <BooleanResponse result="false"/>
+ <BooleanResponse result="false"/>
+ <BooleanResponse result="false"/>
+</ResponseMessage>

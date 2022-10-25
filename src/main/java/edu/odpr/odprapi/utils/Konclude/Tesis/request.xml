@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RequestMessage xmlns="http://www.owllink.org/owllink#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.owllink.org/owllink#
+      http://www.w3.org/Submission/2010/SUBM-owllink-httpxml-binding-20100701/owllink.xsd">
+
+    <CreateKB kb="http://www.owllink.org/ont/sistema" name="KB 1" />
+
+    <LoadOntologies kb="http://www.owllink.org/ont/sistema">
+        <OntologyIRI IRI="Tesis/ej_met_prot.owl" />
+    </LoadOntologies>
+
+    <!--<GetSubClasses kb="http://www.owllink.org/ont/sistema" direct="true">
+        <owl:Class IRI="http://mklab.iti.gr/pericles/ComputerSystem_ODP#Software"/>
+    </GetSubClasses>
+
+    <GetAllClasses kb="http://www.owllink.org/ont/sistema" />
+
+    <GetAllObjectProperties kb="http://www.owllink.org/ont/sistema" />
+
+    <IsEntailed kb="http://www.owllink.org/ont/sistema">
+        <owl:SubClassOf>
+            <owl:Class IRI="http://mklab.iti.gr/pericles/ComputerSystem_ODP#Driver" />
+            <owl:Class IRI="http://mklab.iti.gr/pericles/ComputerSystem_ODP#Software" />
+        </owl:SubClassOf>
+    </IsEntailed>
+
+    <IsEntailed kb="http://www.owllink.org/ont/sistema">
+        <owl:SubClassOf>
+            <owl:Class IRI="http://crowd.fi.uncoma.edu.ar#Software"/>
+            <owl:ObjectAllValuesFrom>
+              <owl:ObjectProperty IRI="http://crowd.fi.uncoma.edu.ar#requiresSoftware"/>
+              <owl:Class IRI="http://crowd.fi.uncoma.edu.ar#Software"/>
+            </owl:ObjectAllValuesFrom>
+          </owl:SubClassOf>
+    </IsEntailed>
+
+    <IsEntailed kb="http://www.owllink.org/ont/sistema">
+        <owl:ObjectPropertyRange>
+            <owl:ObjectProperty IRI="http://mklab.iti.gr/pericles/ComputerSystem_ODP#requiresSoftware"/>
+            <owl:Class IRI="http://mklab.iti.gr/pericles/ComputerSystem_ODP#Software"/>
+        </owl:ObjectPropertyRange>
+    </IsEntailed>
+
+    <IsEntailed kb="http://www.owllink.org/ont/sistema">
+        <owl:ObjectPropertyRange>
+            <owl:ObjectProperty IRI="http://mklab.iti.gr/pericles/ComputerSystem_ODP#requiresSoftware"/>
+            <owl:Class IRI="http://mklab.iti.gr/pericles/ComputerSystem_ODP#Software"/>
+        </owl:ObjectPropertyRange>
+    </IsEntailed>-->
+
+
+    <GetAllClasses kb="http://www.owllink.org/ont/sistema" />
+
+    <GetAllObjectProperties kb="http://www.owllink.org/ont/sistema" />
+
+    <IsEntailed kb="http://www.owllink.org/ont/sistema">
+        <owl:SubClassOf>
+            <owl:Class IRI="http://www.semanticweb.org/tomyl/ontologies/2022/3/untitled-ontology-3#OS" />
+            <owl:Class IRI="http://www.semanticweb.org/tomyl/ontologies/2022/3/untitled-ontology-3#SW" />
+        </owl:SubClassOf>
+    </IsEntailed>
+
+    <IsEntailed kb="http://www.owllink.org/ont/sistema">
+        <owl:SubClassOf>
+            <owl:Class IRI="http://www.semanticweb.org/tomyl/ontologies/2022/3/untitled-ontology-3#Driver" />
+            <owl:Class IRI="http://www.semanticweb.org/tomyl/ontologies/2022/3/untitled-ontology-3#SW" />
+        </owl:SubClassOf>
+    </IsEntailed>
+
+    <IsEntailed kb="http://www.owllink.org/ont/sistema">
+        <owl:SubClassOf>
+            <owl:Class IRI="http://www.semanticweb.org/tomyl/ontologies/2022/3/untitled-ontology-3#HW" />
+            <owl:ObjectSomeValuesFrom>
+                <owl:ObjectProperty IRI="http://www.semanticweb.org/tomyl/ontologies/2022/3/untitled-ontology-3#requires" />
+                <owl:Class IRI="http://www.semanticweb.org/tomyl/ontologies/2022/3/untitled-ontology-3#SW" />
+            </owl:ObjectSomeValuesFrom>
+        </owl:SubClassOf>
+    </IsEntailed>
+
+    <IsEntailed kb="http://www.owllink.org/ont/sistema">
+        <owl:ObjectPropertyRange>
+            <owl:ObjectProperty IRI="http://www.semanticweb.org/tomyl/ontologies/2022/3/untitled-ontology-3#requires" />
+            <owl:Class IRI="http://www.semanticweb.org/tomyl/ontologies/2022/3/untitled-ontology-3#SW" />
+        </owl:ObjectPropertyRange>
+    </IsEntailed>
+
+    <IsEntailed kb="http://www.owllink.org/ont/sistema">
+        <owl:ObjectPropertyDomain>
+            <owl:ObjectProperty IRI="http://www.semanticweb.org/tomyl/ontologies/2022/3/untitled-ontology-3#requires" />
+            <owl:Class IRI="http://www.semanticweb.org/tomyl/ontologies/2022/3/untitled-ontology-3#HW" />
+        </owl:ObjectPropertyDomain>
+    </IsEntailed>
+
+    <IsEntailed kb="http://www.owllink.org/ont/sistema">
+        <owl:SubClassOf>
+            <Class IRI="#HW"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#requires"/>
+                <Class IRI="#SW"/>
+            </ObjectSomeValuesFrom>
+        </owl:SubClassOf>
+    </IsEntailed>
+</RequestMessage>
