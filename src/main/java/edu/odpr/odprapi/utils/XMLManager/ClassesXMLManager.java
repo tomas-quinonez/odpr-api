@@ -10,9 +10,9 @@ public class ClassesXMLManager extends XMLManager{
 
     public void addIsClassSatisfiableQuery(String className) {
         Element isClassSatEl = doc.createElement("IsClassSatisfiable");
-        isClassSatEl.setAttributeNS(null, "kb", "http://www.owllink.org/ont/sistema");
+        isClassSatEl.setAttributeNS(null, "kb", "http://www.owllink.org/ont/KB");
         Element classEl = doc.createElement("owl:Class");
-        classEl.setAttribute("IRI", className);
+        classEl.setAttribute("IRI", "replace#"+className);
 
         isClassSatEl.appendChild(classEl);
         this.rootElement.appendChild(isClassSatEl);

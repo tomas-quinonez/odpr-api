@@ -36,11 +36,21 @@ public abstract class XMLManager {
                     "http://www.owllink.org/owllink# http://www.w3.org/Submission/2010/SUBM-owllink-httpxml-binding-20100701/owllink.xsd");
 
             Element createKBEl = doc.createElement("CreateKB");
-            createKBEl.setAttribute("kb", "http://www.owllink.org/ont/sistema");
+            createKBEl.setAttribute("kb", "http://www.owllink.org/ont/KB");
             createKBEl.setAttribute("name", "KB 1");
             this.rootElement.appendChild(createKBEl);
 
             doc.appendChild(this.rootElement);
+
+            Element loadOntEl = doc.createElement("LoadOntologies");
+            loadOntEl.setAttribute("kb", "http://www.owllink.org/ont/KB");
+            Element ontIRIEl = doc.createElement("OntologyIRI");
+            ontIRIEl.setAttribute("IRI", "");
+
+            loadOntEl.appendChild(ontIRIEl);
+            this.rootElement.appendChild(loadOntEl);
+
+            //doc.appendChild(this.rootElement);
         } catch (Exception e) {
             e.printStackTrace();
         }

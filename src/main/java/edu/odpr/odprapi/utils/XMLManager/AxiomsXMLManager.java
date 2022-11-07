@@ -10,12 +10,12 @@ public class AxiomsXMLManager extends XMLManager{
 
     public void addSubClassOfQuery(String subClass, String superClass) {
         Element isEntailedEl = doc.createElement("IsEntailed");
-        isEntailedEl.setAttributeNS(null, "kb", "http://www.owllink.org/ont/sistema");
+        isEntailedEl.setAttributeNS(null, "kb", "http://www.owllink.org/ont/KB");
         Element subClassOfEl = doc.createElement("SubClassOf");
         Element classEl = doc.createElement("owl:Class");
-        classEl.setAttribute("IRI", subClass);
+        classEl.setAttribute("IRI", "replace#"+subClass);
         Element classEl2 = doc.createElement("owl:Class");
-        classEl2.setAttribute("IRI", superClass);
+        classEl2.setAttribute("IRI", "replace#"+superClass);
 
         subClassOfEl.appendChild(classEl);
         subClassOfEl.appendChild(classEl2);
@@ -25,12 +25,12 @@ public class AxiomsXMLManager extends XMLManager{
 
     public void addOPRangeQuery(String objectPropertyName, String className) {
         Element isEntailedEl = doc.createElement("IsEntailed");
-        isEntailedEl.setAttributeNS(null, "kb", "http://www.owllink.org/ont/sistema");
+        isEntailedEl.setAttributeNS(null, "kb", "http://www.owllink.org/ont/KB");
         Element OPRangeEl = doc.createElement("owl:ObjectPropertyRange");
         Element OPEl = doc.createElement("owl:ObjectProperty");
-        OPEl.setAttribute("IRI", objectPropertyName);
+        OPEl.setAttribute("IRI", "replace#"+objectPropertyName);
         Element classEl = doc.createElement("owl:Class");
-        classEl.setAttribute("IRI", className);
+        classEl.setAttribute("IRI", "replace#"+className);
 
         OPRangeEl.appendChild(OPEl);
         OPRangeEl.appendChild(classEl);
@@ -40,12 +40,12 @@ public class AxiomsXMLManager extends XMLManager{
 
     public void addOPDomainQuery(String objectPropertyName, String className) {
         Element isEntailedEl = doc.createElement("IsEntailed");
-        isEntailedEl.setAttributeNS(null, "kb", "http://www.owllink.org/ont/sistema");
+        isEntailedEl.setAttributeNS(null, "kb", "http://www.owllink.org/ont/KB");
         Element OPDomainEl = doc.createElement("owl:ObjectPropertyDomain");
         Element OPEl = doc.createElement("owl:ObjectProperty");
-        OPEl.setAttribute("IRI", objectPropertyName);
+        OPEl.setAttribute("IRI", "replace#"+objectPropertyName);
         Element classEl = doc.createElement("owl:Class");
-        classEl.setAttribute("IRI", className);
+        classEl.setAttribute("IRI", "replace#"+className);
 
         OPDomainEl.appendChild(OPEl);
         OPDomainEl.appendChild(classEl);
@@ -55,16 +55,16 @@ public class AxiomsXMLManager extends XMLManager{
 
     public void addSomeValuesFromQuery(String className1, String className2, String objectPropertyName) {
         Element isEntailedEl = doc.createElement("IsEntailed");
-        isEntailedEl.setAttributeNS(null, "kb", "http://www.owllink.org/ont/sistema");
+        isEntailedEl.setAttributeNS(null, "kb", "http://www.owllink.org/ont/KB");
         Element subClassOfEl = doc.createElement("SubClassOf");
         // subClassOfEl.setPrefix("owl");
         Element classEl = doc.createElement("owl:Class");
-        classEl.setAttribute("IRI", className1);
+        classEl.setAttribute("IRI", "replace#"+className1);
         Element someValuesEl = doc.createElement("owl:ObjectSomeValuesFrom");
         Element OPEl = doc.createElement("owl:ObjectProperty");
-        OPEl.setAttribute("IRI", objectPropertyName);
+        OPEl.setAttribute("IRI", "replace#"+objectPropertyName);
         Element classEl2 = doc.createElement("owl:Class");
-        classEl2.setAttribute("IRI", className2);
+        classEl2.setAttribute("IRI", "replace#"+className2);
 
         someValuesEl.appendChild(OPEl);
         someValuesEl.appendChild(classEl2);
