@@ -1,12 +1,9 @@
 package edu.odpr.odprapi.services;
 
-import java.io.File;
 import java.io.InputStream;
 import java.util.Set;
 
-import org.json.simple.JSONObject;
 import org.semanticweb.owlapi.apibinding.OWLManager;
-//import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLAxiom;
 import org.semanticweb.owlapi.model.OWLClass;
 import org.semanticweb.owlapi.model.OWLClassExpression;
@@ -34,16 +31,22 @@ public class PatternPreprocessingService {
         // IRI iri = o.getOntologyID().getOntologyIRI().get();
 
         Set<OWLClass> classes = o.getClassesInSignature();
+        int cantClasses = classes.size();
         for (OWLClass owlClass : classes) {
             String className = owlClass.getIRI().getShortForm();
             classNamesXMLManager.addIsClassSatisfiableQuery(className);
         }
+        
+
         Set<OWLObjectProperty> objectProperties = o.getObjectPropertiesInSignature();
+        int cantOPs = objectProperties.size();
         for (OWLObjectProperty owlOP : objectProperties) {
             String oPName = owlOP.getIRI().getShortForm();
             objectPropNamesXMLManager.addIsOPSatisfiableQuery(oPName);
         }
+        
 
+        int cantAxioms = 0;
         Set<OWLAxiom> axioms = o.getAxioms();
         for (OWLAxiom owlAxiom : axioms) {
             Object[] classesArr = owlAxiom.getClassesInSignature().toArray();
@@ -66,18 +69,21 @@ public class PatternPreprocessingService {
                     } else {
                         axiomsXMLManager.addSubClassOfQuery(class1Name, class2Name);
                     }
+                    cantAxioms++;
                     break;
 
                 case "ObjectPropertyDomain":
                     oPName = ((OWLObjectProperty) objectPropertiesArr[0]).getIRI().getShortForm();
                     class1Name = ((OWLClass) classesArr[0]).getIRI().getShortForm();
                     axiomsXMLManager.addOPDomainQuery(oPName, class1Name);
+                    cantAxioms++;
                     break;
 
                 case "ObjectPropertyRange":
                     oPName = ((OWLObjectProperty) objectPropertiesArr[0]).getIRI().getShortForm();
                     class1Name = ((OWLClass) classesArr[0]).getIRI().getShortForm();
                     axiomsXMLManager.addOPRangeQuery(oPName, class1Name);
+                    cantAxioms++;
                     break;
 
                 default:
@@ -89,8 +95,8 @@ public class PatternPreprocessingService {
         String classNamesXMLString = classNamesXMLManager.getXMLString();
         String opNamesXMLString = objectPropNamesXMLManager.getXMLString();
         String axiomsXMLString = axiomsXMLManager.getXMLString();
-
-        p = new Pattern(classNamesXMLString, opNamesXMLString, axiomsXMLString);
+        
+        p = new Pattern(classNamesXMLString, opNamesXMLString, axiomsXMLString, cantClasses, cantOPs, cantAxioms);
         return p;
     }
 }

@@ -42,23 +42,38 @@ public class Pattern {
     @Type(type= "json")
     @Column(name= "synonyms", columnDefinition = "jsonb")
     private String synonyms;
+
+    @Column(name = "cant_classes")
+    private int cantClasses;
+
+    @Column(name = "cant_ops")
+    private int cantOPs;
+
+    @Column(name = "cant_axioms")
+    private int cantAxioms;
     
     public Pattern() {}
 
-    public Pattern(String name, String classNamesQueries, String opNamesQueries, String axiomsQueries, String synonyms) {
+    public Pattern(String name, String classNamesQueries, String opNamesQueries, String axiomsQueries, String synonyms, int cantClasses, int cantOPs, int cantAxioms) {
         this.name = name;
         this.classNamesQueries = classNamesQueries;
         this.opNamesQueries = opNamesQueries;
         this.axiomsQueries = axiomsQueries;
         this.synonyms = synonyms;
+        this.cantClasses = cantClasses;
+        this.cantOPs = cantOPs;
+        this.cantAxioms = cantAxioms;
     }
 
-    public Pattern(String classNamesQueries, String opNamesQueries, String axiomsQueries) {
+    public Pattern(String classNamesQueries, String opNamesQueries, String axiomsQueries, int cantClasses, int cantOPs, int cantAxioms) {
         this.name = "";
         this.classNamesQueries = classNamesQueries;
         this.opNamesQueries = opNamesQueries;
         this.axiomsQueries = axiomsQueries;
         this.synonyms = "";
+        this.cantClasses = cantClasses;
+        this.cantOPs = cantOPs;
+        this.cantAxioms = cantAxioms;
     }
 
     public int getId() {
@@ -110,6 +125,28 @@ public class Pattern {
         this.synonyms = synonyms;
     }
 
+    public int getCantClasses() {
+        return this.cantClasses;
+    }
 
+    public void setCantClasses(int cantClasses) {
+        this.cantClasses = cantClasses;
+    }
+
+    public int getCantOPs() {
+        return this.cantOPs;
+    }
+
+    public void setCantOPs(int cantOPs) {
+        this.cantOPs = cantOPs;
+    }
+
+    public int getCantAxioms() {
+        return this.cantAxioms;
+    }
+
+    public void setCantAxioms(int cantAxioms) {
+        this.cantAxioms = cantAxioms;
+    }
     
 }
