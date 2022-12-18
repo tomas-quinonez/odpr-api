@@ -7,12 +7,14 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
@@ -30,45 +32,18 @@ public class OntologyAnalysisController {
     @Autowired
     private OntologyAnalysisService ontologyAnalysisService;
 
-    @PostMapping("/recommendpatterns")
+    @GetMapping("/recommendpatterns")
     public ResponseEntity<Object> recommendPatterns(
-            @RequestParam(name = "ontology", required = false) MultipartFile ontology) {
+            @RequestParam(name = "ontology", required = true) MultipartFile ontology) {
+                // TODO poner lo de iri base en el informe
+        LinkedList<Map<String, String>> recommendationList = new LinkedList<Map<String, String>>();
         try {
-            /*File newFile = File.createTempFile("text", ".temp", new File("src\\main\\java\\edu\\odpr\\odprapi\\temp"));
-
-            String[] args = { "Konclude.bat", "owllinkfile" };
-            ProcessBuilder pb = new ProcessBuilder("cmd", "/c", "Konclude.bat", "owllinkfile",
-                    "-i", "Tesis/axiom_queries_met_prot.xml",
-                    "-o", "Tesis/respuesta_met_prot.xml");
-            pb.directory(new File("src\\main\\java\\edu\\odpr\\odprapi\\utils\\Konclude"));
-            final StringBuffer sb = new StringBuffer();
-            Process p;
-
-            p = pb.start();
-            int exitStatus = p.waitFor();
-            System.out.println(exitStatus);
-            BufferedReader reader = new BufferedReader(
-                    new InputStreamReader(p.getInputStream()));
-
-            String line;
-            while ((line = reader.readLine()) != null) {
-                sb.append(line + "\n");
-            }
-            System.out.println(sb.toString());*/
-
             List<Pattern> patternList = patternStorageService.getAllPatterns();
-            /*for (Pattern p : patternList) {
-                System.out.println(p.getClassNamesQueries());
-                java.io.FileWriter fw = new java.io.FileWriter("src\\main\\java\\edu\\odpr\\odprapi\\temp\\ej.xml");
-                fw.write(p.getClassNamesQueries());
-                fw.close();
-            }*/
-            ontologyAnalysisService.analyseOntology(patternList, ontology.getInputStream());
+            recommendationList = ontologyAnalysisService.analyseOntology(patternList, ontology.getInputStream(), new String(ontology.getBytes()));
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-
-        return ResponseHandler.generateResponse(null, HttpStatus.CREATED, null);
+        return ResponseHandler.generateRecommendationResponse(recommendationList);
     }
 }

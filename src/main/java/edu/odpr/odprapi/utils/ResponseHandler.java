@@ -3,6 +3,7 @@ package edu.odpr.odprapi.utils;
 import java.sql.Timestamp;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.Map;
 
 import org.springframework.http.HttpStatus;
@@ -25,5 +26,19 @@ public class ResponseHandler {
         map.put("error", errorReason);
 
         return new ResponseEntity<Object>(map, status);
+    }
+
+    public static ResponseEntity<Object> generateRecommendationResponse(LinkedList<Map<String, String>> recommendationList) {
+        Date date = new Date();
+        long time = date.getTime();
+        Timestamp ts = new Timestamp(time);
+
+        Map<String, Object> map = new HashMap<String, Object>();
+        
+        map.put("timestamp", ts.toString());
+        map.put("status_code", HttpStatus.OK);
+        map.put("recommended_patterns", recommendationList);
+
+        return new ResponseEntity<Object>(map, HttpStatus.OK);
     }
 }
